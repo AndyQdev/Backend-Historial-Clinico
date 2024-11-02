@@ -36,7 +36,7 @@ public class JwtService {
                .compact();
     }
 
-    // Generar token sin expiración para clientes
+    // Generar token sin expiración para pacientes
     public String getTokenWithoutExpiration(Paciente paciente) {
         return Jwts
                .builder()

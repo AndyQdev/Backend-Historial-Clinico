@@ -44,6 +44,26 @@ public class AuthController {
         return ResponseEntity.ok(authService.registerPaciente(request));
     }
 
+    @PostMapping("/verify-code")
+    public ResponseEntity<?> verifyPaciente(@RequestBody VerificationRequest request) {
+        boolean isVerified = authService.verifyPaciente(request.getEmail(), request.getCode());
+        if (isVerified) {
+            return ResponseEntity.ok("Verificación exitosa. La cuenta ha sido activada.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Código de verificación inválido o expirado.");
+        }
+    }
+    
+    @PostMapping("/resend-code")
+    public ResponseEntity<?> resendVerificationCode(@RequestBody String email) {
+        boolean isResent = authService.resendVerificationCode(email);
+        if (isResent) {
+            return ResponseEntity.ok("Nuevo código de verificación enviado.");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No se pudo enviar el código. Verifique el email.");
+        }
+    }
+    
     @PostMapping(value = "/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request){
         return ResponseEntity.ok(authService.register(request));

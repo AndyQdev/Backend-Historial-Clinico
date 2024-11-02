@@ -5,7 +5,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import java.time.LocalDateTime;
+import java.util.Optional;
 import app.backendclinic.jwt.JwtService;
 import app.backendclinic.models.Paciente;
 import app.backendclinic.models.Role;
@@ -24,7 +25,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final RoleRepository roleRepository; 
     private final PacienteRepository pacienteRepository; 
-    
+    private final TwilioService twilioService; // Servicio de Twilio para WhatsApp
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -51,23 +52,84 @@ public class AuthService {
         .build();
     }
 
-    public AuthResponse registerPaciente(RegisterPaciente request) {
-        Paciente paciente = Paciente.builder()
-        .fechaNacimiento(request.getFechaNacimiento())
-        .apellido(request.getApellido())
-        .numeroSeguro(request.getNumeroSeguro())
-        .email(request.getEmail())
-        .password(passwordEncoder.encode(request.getPassword()))
-        .direccion(request.getDireccion())
-        .telefono(request.getTelefono())
-        .nombre(request.getNombre())
-        .isActive(true)
-        .build();
+    // public AuthResponse registerPaciente(RegisterPaciente request) {
+    //     Paciente paciente = Paciente.builder()
+    //     .fechaNacimiento(request.getFechaNacimiento())
+    //     .apellido(request.getApellido())
+    //     .numeroSeguro(request.getNumeroSeguro())
+    //     .email(request.getEmail())
+    //     .password(passwordEncoder.encode(request.getPassword()))
+    //     .direccion(request.getDireccion())
+    //     .telefono(request.getTelefono())
+    //     .nombre(request.getNombre())
+    //     .isActive(true)
+    //     .build();
         
+    //     pacienteRepository.save(paciente);
+    //     return AuthResponse.builder()
+    //     .token(jwtService.getTokenWithoutExpiration(paciente))
+    //     .build();
+    // }
+    public AuthResponse registerPaciente(RegisterPaciente request) {
+        String verificationCode = twilioService.generateVerificationCode(); // Genera el código de verificación
+
+        Paciente paciente = Paciente.builder()
+            .fechaNacimiento(request.getFechaNacimiento())
+            .apellido(request.getApellido())
+            .numeroSeguro(request.getNumeroSeguro())
+            .email(request.getEmail())
+            .password(passwordEncoder.encode(request.getPassword()))
+            .direccion(request.getDireccion())
+            .telefono(request.getTelefono())
+            .nombre(request.getNombre())
+            .isActive(false) // Cuenta inactiva hasta verificar el código
+            .verificationCode(verificationCode) // Almacena el código en el paciente
+            .codeExpiration(LocalDateTime.now().plusMinutes(5)) // Expiración en 5 minutos
+            .build();
+
         pacienteRepository.save(paciente);
+
+        // Envía el código de verificación por WhatsApp
+        twilioService.sendVerificationCode(paciente.getTelefono(), verificationCode);
+
         return AuthResponse.builder()
-        .token(jwtService.getTokenWithoutExpiration(paciente))
-        .build();
+            .message("Registro exitoso. Código de verificación enviado.")
+            .token(jwtService.getTokenWithoutExpiration(paciente))
+            .paciente(paciente)
+            .build();
+    }
+    
+    public boolean verifyPaciente(String email, String code) {
+        Optional<Paciente> pacienteOpt = pacienteRepository.findByEmail(email);
+        if (pacienteOpt.isPresent()) {
+            Paciente paciente = pacienteOpt.get();
+            if (paciente.getVerificationCode().equals(code) && 
+                paciente.getCodeExpiration().isAfter(LocalDateTime.now())) {
+                // Verificación exitosa, activar la cuenta
+                paciente.setActive(true);
+                paciente.setVerificationCode(null); // Limpia el código
+                paciente.setCodeExpiration(null);
+                pacienteRepository.save(paciente);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean resendVerificationCode(String email) {
+        Optional<Paciente> pacienteOpt = pacienteRepository.findByEmail(email);
+        if (pacienteOpt.isPresent()) {
+            Paciente paciente = pacienteOpt.get();
+            if (!paciente.isActive() || paciente.getCodeExpiration().isBefore(LocalDateTime.now())) {
+                String newCode = twilioService.generateVerificationCode();
+                paciente.setVerificationCode(newCode);
+                paciente.setCodeExpiration(LocalDateTime.now().plusMinutes(5));
+                pacienteRepository.save(paciente);
+                twilioService.sendVerificationCode(paciente.getTelefono(), newCode);
+                return true;
+            }
+        }
+        return false;
     }
     public AuthResponse register(RegisterRequest request) {
         Role role = roleRepository.findById(request.getRoleId())

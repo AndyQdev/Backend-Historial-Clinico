@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -30,7 +31,7 @@ public class Paciente {
     private LocalDate fechaNacimiento;
 
     @Column(nullable = false, unique = true)
-    private String numeroSeguro; // Número de seguro único para cada paciente
+    private String numeroSeguro;
 
     @Column(nullable = false)
     private String telefono;
@@ -42,12 +43,17 @@ public class Paciente {
     private String email;
 
     @Column(nullable = false)
-    private String password; // Contraseña encriptada
+    private String password;
 
     @Column(name = "is_active", nullable = false)
-    private boolean isActive; // Campo para saber si el paciente está activo o no
+    private boolean isActive;
 
-    // PrePersist para generar el UUID automáticamente
+    @Column(name = "verification_code")
+    private String verificationCode;
+
+    @Column(name = "code_expiration")
+    private LocalDateTime codeExpiration;
+
     @PrePersist
     public void prePersist() {
         if (id == null || id.isEmpty()) {
