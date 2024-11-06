@@ -1,9 +1,9 @@
-package app.backendclinic.services;
+package app.backendclinic.pacientes.services;
 
 import org.springframework.stereotype.Service;
 
-import app.backendclinic.models.Paciente;
-import app.backendclinic.repositorys.PacienteRepository;
+import app.backendclinic.pacientes.models.Paciente;
+import app.backendclinic.pacientes.repositorys.PacienteRepository;
 
 @Service
 public class PacienteService {

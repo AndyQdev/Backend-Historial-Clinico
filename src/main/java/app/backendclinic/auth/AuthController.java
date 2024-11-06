@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.backendclinic.jwt.JwtService;
-import app.backendclinic.models.Paciente;
-import app.backendclinic.repositorys.PacienteRepository;
+import app.backendclinic.pacientes.models.Paciente;
+import app.backendclinic.pacientes.repositorys.PacienteRepository;
 import lombok.RequiredArgsConstructor;
 
 
@@ -55,8 +55,8 @@ public class AuthController {
     }
     
     @PostMapping("/resend-code")
-    public ResponseEntity<?> resendVerificationCode(@RequestBody String email) {
-        boolean isResent = authService.resendVerificationCode(email);
+    public ResponseEntity<?> resendVerificationCode(@RequestBody VerificationRequest request) {
+        boolean isResent = authService.resendVerificationCode(request.getEmail());
         if (isResent) {
             return ResponseEntity.ok("Nuevo código de verificación enviado.");
         } else {

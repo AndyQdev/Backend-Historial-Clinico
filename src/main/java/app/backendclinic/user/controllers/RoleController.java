@@ -1,4 +1,4 @@
-package app.backendclinic.controllers;
+package app.backendclinic.user.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.backendclinic.dtos.RoleRequest;
-import app.backendclinic.models.Role;
-import app.backendclinic.repositorys.RoleRepository;
-import app.backendclinic.services.RoleService;
+import app.backendclinic.user.models.Role;
+import app.backendclinic.user.repositorys.RoleRepository;
+import app.backendclinic.user.services.RoleService;
 
 @RestController
 @RequestMapping("/api/roles")

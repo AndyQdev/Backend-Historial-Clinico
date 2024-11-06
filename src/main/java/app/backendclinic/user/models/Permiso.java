@@ -1,4 +1,4 @@
-package app.backendclinic.models;
+package app.backendclinic.user.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

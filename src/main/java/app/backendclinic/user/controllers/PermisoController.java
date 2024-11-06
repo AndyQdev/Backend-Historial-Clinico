@@ -1,4 +1,4 @@
-package app.backendclinic.controllers;
+package app.backendclinic.user.controllers;
 
 import java.util.List;
 
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.backendclinic.models.Permiso;
-import app.backendclinic.repositorys.PermisoRepository;
+import app.backendclinic.user.models.Permiso;
+import app.backendclinic.user.repositorys.PermisoRepository;
+
 
 
 @RestController

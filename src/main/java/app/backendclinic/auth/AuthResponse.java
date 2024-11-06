@@ -1,6 +1,6 @@
 package app.backendclinic.auth;
 
-import app.backendclinic.models.Paciente;
+import app.backendclinic.pacientes.models.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

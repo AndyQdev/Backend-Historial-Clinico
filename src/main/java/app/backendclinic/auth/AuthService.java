@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import app.backendclinic.jwt.JwtService;
-import app.backendclinic.models.Paciente;
-import app.backendclinic.models.Role;
 import app.backendclinic.models.Usuario;
+import app.backendclinic.pacientes.models.Paciente;
+import app.backendclinic.pacientes.repositorys.PacienteRepository;
 import lombok.RequiredArgsConstructor;
-import app.backendclinic.repositorys.PacienteRepository;
-import app.backendclinic.repositorys.RoleRepository;
 import app.backendclinic.repositorys.UserRepository;
+import app.backendclinic.user.models.Role;
+import app.backendclinic.user.repositorys.RoleRepository;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -100,7 +100,9 @@ public class AuthService {
     }
     
     public boolean verifyPaciente(String email, String code) {
+        System.out.println(email);
         Optional<Paciente> pacienteOpt = pacienteRepository.findByEmail(email);
+        System.out.println(pacienteOpt.isPresent());
         if (pacienteOpt.isPresent()) {
             Paciente paciente = pacienteOpt.get();
             if (paciente.getVerificationCode().equals(code) && 
@@ -117,7 +119,9 @@ public class AuthService {
     }
 
     public boolean resendVerificationCode(String email) {
+        System.out.println(email);
         Optional<Paciente> pacienteOpt = pacienteRepository.findByEmail(email);
+        System.out.println(pacienteOpt.isPresent());
         if (pacienteOpt.isPresent()) {
             Paciente paciente = pacienteOpt.get();
             if (!paciente.isActive() || paciente.getCodeExpiration().isBefore(LocalDateTime.now())) {

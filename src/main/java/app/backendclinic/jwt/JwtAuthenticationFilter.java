@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import app.backendclinic.models.CustomUserDetails;
-import app.backendclinic.models.Paciente;
-import app.backendclinic.services.PacienteService;
+import app.backendclinic.pacientes.models.Paciente;
+import app.backendclinic.pacientes.services.PacienteService;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

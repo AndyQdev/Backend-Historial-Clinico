@@ -3,6 +3,8 @@ package app.backendclinic.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import app.backendclinic.pacientes.models.Paciente;
+
 import java.util.Collection;
 import java.util.Collections;
 

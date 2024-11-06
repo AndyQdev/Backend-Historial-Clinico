@@ -1,4 +1,4 @@
-package app.backendclinic.services;
+package app.backendclinic.user.services;
 
 
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.backendclinic.dtos.RoleRequest;
-import app.backendclinic.models.Permiso;
-import app.backendclinic.models.Role;
-import app.backendclinic.repositorys.PermisoRepository;
-import app.backendclinic.repositorys.RoleRepository;
+import app.backendclinic.user.models.Permiso;
+import app.backendclinic.user.models.Role;
+import app.backendclinic.user.repositorys.PermisoRepository;
+import app.backendclinic.user.repositorys.RoleRepository;
 
 
 @Service

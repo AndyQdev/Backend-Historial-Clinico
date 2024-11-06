@@ -1,4 +1,4 @@
-package app.backendclinic.models;
+package app.backendclinic.user.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import app.backendclinic.models.Usuario;
 
 
 @Data
