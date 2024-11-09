@@ -11,7 +11,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import app.backendclinic.models.Usuario;
+import app.backendclinic.models.User;
 
 
 @Data
@@ -30,7 +30,7 @@ public class Role {
 
     @OneToMany(mappedBy = "role")
     @JsonIgnore// Ignora la serialización de los roles para evitar la recursión infinita
-    private List<Usuario> users; // Relación con los usuarios que tienen este rol
+    private List<User> users; // Relación con los usuarios que tienen este rol
 
     @ManyToMany
     @JoinTable(

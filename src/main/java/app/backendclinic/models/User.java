@@ -21,7 +21,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "usuarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
-public class Usuario implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     private String id; // Se generará automáticamente un UUID como id
@@ -41,7 +41,7 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String telefono; // Teléfono del usuario
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role; // Relación con el rol
 

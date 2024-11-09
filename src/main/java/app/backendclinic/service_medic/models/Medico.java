@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
-import app.backendclinic.models.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import app.backendclinic.models.User;
+
 
 @Data
 @Builder
@@ -25,9 +28,10 @@ public class Medico {
 
     @OneToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
-    private Usuario usuario;
-
+    private User usuario;
+    
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore// Ignora la serialización de los roles para evitar la recursión infinita
     private List<HorarioAtencion> horariosAtencion;
 
     // Otros posibles atributos de Medico

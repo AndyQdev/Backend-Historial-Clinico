@@ -1,5 +1,6 @@
 package app.backendclinic.auth;
 
+import app.backendclinic.models.User;
 import app.backendclinic.pacientes.models.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,4 +15,5 @@ public class AuthResponse {
     String token;
     Paciente paciente;
     String message;
+    User user;
 }

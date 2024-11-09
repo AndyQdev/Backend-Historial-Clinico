@@ -1,14 +1,11 @@
 package app.backendclinic.auth;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import app.backendclinic.jwt.JwtService;
-import app.backendclinic.models.Usuario;
+import app.backendclinic.models.User;
 import app.backendclinic.pacientes.models.Paciente;
 import app.backendclinic.pacientes.repositorys.PacienteRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,18 +19,29 @@ public class AuthService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
+    // private final AuthenticationManager authenticationManager;
     private final RoleRepository roleRepository; 
     private final PacienteRepository pacienteRepository; 
     private final TwilioService twilioService; // Servicio de Twilio para WhatsApp
 
     public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        UserDetails user = userRepository.findByUsername(request.getUsername()).orElseThrow();
+        // Busca el usuario por username
+        User user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    
+        // Verifica la contraseña
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Invalid password");
+        }
+    
+        // Genera el token JWT si la validación fue exitosa
         String token = jwtService.getToken(user);
+    
+        // Retorna la respuesta con el token
         return AuthResponse.builder()
-        .token(token)
-        .build();
+                .token(token)
+                .user(user)
+                .build();
     }
     public AuthResponse loginCliente(LoginRequest request) {
         Paciente paciente = pacienteRepository.findByEmail(request.getUsername()).orElseThrow();
@@ -140,7 +148,7 @@ public class AuthService {
             .orElseThrow(() -> new IllegalArgumentException("Role not found"));
         // Branch branch = branchRepository.findById(request.getBranchId())
         //     .orElseThrow(() -> new IllegalArgumentException("Role not found"));
-        Usuario user = Usuario.builder()
+        User user = User.builder()
         .username(request.getUsername())
         .password(passwordEncoder.encode(request.getPassword()))
         .telefono(request.getTelefono())

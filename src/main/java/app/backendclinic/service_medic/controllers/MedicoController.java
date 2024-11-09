@@ -9,6 +9,7 @@ import app.backendclinic.service_medic.models.Medico;
 import app.backendclinic.service_medic.services.MedicoService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/medicos")
@@ -28,8 +29,9 @@ public class MedicoController {
     }
 
     @PostMapping
-    public Medico createMedico(@RequestBody Medico medico) {
-        return medicoService.createMedico(medico);
+    public Medico createMedico(@RequestBody Map<String, String> requestBody) {
+        String usuarioId = requestBody.get("usuarioId"); // Extrae el usuarioId del cuerpo de la solicitud
+        return medicoService.createMedico(usuarioId);
     }
 
     @PostMapping("/{id}/horarios")
