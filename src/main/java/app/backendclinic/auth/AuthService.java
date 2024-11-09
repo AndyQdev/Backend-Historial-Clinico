@@ -1,5 +1,6 @@
 package app.backendclinic.auth;
 
+import app.backendclinic.service_medic.services.HistorialMedicoService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class AuthService {
     private final RoleRepository roleRepository; 
     private final PacienteRepository pacienteRepository; 
     private final TwilioService twilioService; // Servicio de Twilio para WhatsApp
+    private final HistorialMedicoService historialMedicoService;
 
     public AuthResponse login(LoginRequest request) {
         // Busca el usuario por username
@@ -96,6 +98,9 @@ public class AuthService {
             .build();
 
         pacienteRepository.save(paciente);
+
+        // Crear automáticamente el historial médico asociado al paciente
+        historialMedicoService.createHistorialMedico(paciente.getId());
 
         // Envía el código de verificación por WhatsApp
         twilioService.sendVerificationCode(paciente.getTelefono(), verificationCode);
