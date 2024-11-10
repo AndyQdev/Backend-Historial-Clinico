@@ -26,11 +26,11 @@ public class AnotacionHistorial {
     @JoinColumn(name = "medico_id", nullable = false)
     private Medico medico;
 
-    @Column(nullable = false)
-    private String descripcion; // Descripción general de la consulta
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String descripcion;// Descripción general de la consulta
 
-    @Column(nullable = true)
-    private String tratamiento; // Detalles del tratamiento recomendado
+    @Column(nullable = true, columnDefinition = "TEXT")
+    private String tratamiento;// Detalles del tratamiento recomendado
 
     @Column(name = "fecha_anotacion", nullable = false)
     private LocalDateTime fechaAnotacion;
