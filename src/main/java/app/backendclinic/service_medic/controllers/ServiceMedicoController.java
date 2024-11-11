@@ -1,5 +1,6 @@
 package app.backendclinic.service_medic.controllers;
 
+import app.backendclinic.service_medic.models.EspecialidadMedica;
 import app.backendclinic.service_medic.models.ServiceMedico;
 import app.backendclinic.service_medic.services.ServicioMedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,18 @@ public class ServiceMedicoController {
     public ResponseEntity<Void> eliminarServicio(@PathVariable String id) {
         servicioMedicoService.eliminarServicio(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @PostMapping("/{servicioId}/asignar-especialidad/{especialidadId}")
+    public ResponseEntity<ServiceMedico> asignarEspecialidad(
+            @PathVariable String servicioId, 
+            @PathVariable String especialidadId) {
+        ServiceMedico servicioActualizado = servicioMedicoService.asignarEspecialidad(servicioId, especialidadId);
+        return new ResponseEntity<>(servicioActualizado, HttpStatus.OK);
+    }
+    @GetMapping("/{servicioId}/especialidades")
+    public ResponseEntity<List<EspecialidadMedica>> obtenerEspecialidadesPorServicio(
+        @PathVariable String servicioId) {
+        List<EspecialidadMedica> especialidades = servicioMedicoService.obtenerEspecialidadesPorServicio(servicioId);
+        return new ResponseEntity<>(especialidades, HttpStatus.OK);
     }
 }

@@ -27,6 +27,9 @@ public class Medico {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
     private User usuario;
 
+    @Column(nullable = true)
+    private Double rating;
+    
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<HorarioAtencion> horariosAtencion;
