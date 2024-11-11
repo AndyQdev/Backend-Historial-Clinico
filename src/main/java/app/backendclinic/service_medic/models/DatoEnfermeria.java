@@ -27,6 +27,9 @@ public class DatoEnfermeria {
     private double peso;
 
     @Column(nullable = false)
+    private double estatura; // Nueva columna para estatura
+
+    @Column(nullable = false)
     private double presion;
 
     @Column(nullable = false)
@@ -34,6 +37,15 @@ public class DatoEnfermeria {
 
     @Column(nullable = false)
     private double saturacion;
+
+    @Column(nullable = false)
+    private double frecuenciaRespiratoria; // Nueva columna para frecuencia respiratoria
+
+    @Column(nullable = false)
+    private double frecuenciaCardiaca; // Nueva columna para frecuencia cardíaca
+
+    @Column(name = "imc", nullable = false)
+    private double imc; // Nuevo atributo para IMC
 
     @Column(name = "fecha_registro", nullable = false)
     private LocalDateTime fechaRegistro;
@@ -43,5 +55,7 @@ public class DatoEnfermeria {
         if (id == null || id.isEmpty()) {
             id = UUID.randomUUID().toString();
         }
+        // Calcula el IMC antes de persistir
+        this.imc = peso / (estatura * estatura);
     }
 }

@@ -5,18 +5,29 @@ import java.time.LocalDateTime;
 public class CreateDatoEnfermeriaRequest {
 
     private double peso;
+    private double estatura;
     private double presion;
     private double temperatura;
     private double saturacion;
+    private double frecuenciaRespiratoria;
+    private double frecuenciaCardiaca;
     private LocalDateTime fechaRegistro;
 
-    // Getters y Setters
+    // Getters y Setters para cada atributo
     public double getPeso() {
         return peso;
     }
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public double getEstatura() {
+        return estatura;
+    }
+
+    public void setEstatura(double estatura) {
+        this.estatura = estatura;
     }
 
     public double getPresion() {
@@ -41,6 +52,22 @@ public class CreateDatoEnfermeriaRequest {
 
     public void setSaturacion(double saturacion) {
         this.saturacion = saturacion;
+    }
+
+    public double getFrecuenciaRespiratoria() {
+        return frecuenciaRespiratoria;
+    }
+
+    public void setFrecuenciaRespiratoria(double frecuenciaRespiratoria) {
+        this.frecuenciaRespiratoria = frecuenciaRespiratoria;
+    }
+
+    public double getFrecuenciaCardiaca() {
+        return frecuenciaCardiaca;
+    }
+
+    public void setFrecuenciaCardiaca(double frecuenciaCardiaca) {
+        this.frecuenciaCardiaca = frecuenciaCardiaca;
     }
 
     public LocalDateTime getFechaRegistro() {
