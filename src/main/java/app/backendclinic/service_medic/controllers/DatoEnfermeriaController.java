@@ -24,9 +24,12 @@ public class DatoEnfermeriaController {
         DatoEnfermeria nuevoDato = datoEnfermeriaService.addDatoEnfermeria(
                 historialMedicoId,
                 request.getPeso(),
+                request.getEstatura(),
                 request.getPresion(),
                 request.getTemperatura(),
                 request.getSaturacion(),
+                request.getFrecuenciaRespiratoria(),
+                request.getFrecuenciaCardiaca(),
                 request.getFechaRegistro()
         );
         return new ResponseEntity<>(nuevoDato, HttpStatus.CREATED);

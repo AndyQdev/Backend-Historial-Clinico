@@ -23,7 +23,9 @@ public class DatoEnfermeriaService {
     }
 
     @Transactional
-    public DatoEnfermeria addDatoEnfermeria(String historialMedicoId, double peso, double presion, double temperatura, double saturacion, LocalDateTime fechaRegistro) {
+    public DatoEnfermeria addDatoEnfermeria(String historialMedicoId, double peso, double estatura, double presion,
+                                            double temperatura, double saturacion, double frecuenciaRespiratoria,
+                                            double frecuenciaCardiaca, LocalDateTime fechaRegistro) {
         HistorialMedico historialMedico = historialMedicoRepository.findById(historialMedicoId)
                 .orElseThrow(() -> new RuntimeException("Historial médico no encontrado"));
 
@@ -31,10 +33,16 @@ public class DatoEnfermeriaService {
         datoEnfermeria.setId(UUID.randomUUID().toString());
         datoEnfermeria.setHistorialMedico(historialMedico);
         datoEnfermeria.setPeso(peso);
+        datoEnfermeria.setEstatura(estatura);
         datoEnfermeria.setPresion(presion);
         datoEnfermeria.setTemperatura(temperatura);
         datoEnfermeria.setSaturacion(saturacion);
+        datoEnfermeria.setFrecuenciaRespiratoria(frecuenciaRespiratoria);
+        datoEnfermeria.setFrecuenciaCardiaca(frecuenciaCardiaca);
         datoEnfermeria.setFechaRegistro(fechaRegistro);
+
+        // Calcular y asignar el IMC
+        datoEnfermeria.setImc(peso / (estatura * estatura));
 
         return datoEnfermeriaRepository.save(datoEnfermeria);
     }
