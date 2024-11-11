@@ -1,6 +1,6 @@
 package app.backendclinic.service_medic.controllers;
 
-import app.backendclinic.service_medic.Dtos.CreateAntecedenteRequest;
+import app.backendclinic.service_medic.dtos.CreateAntecedenteRequest;
 import app.backendclinic.service_medic.models.Antecedente;
 import app.backendclinic.service_medic.services.AntecedenteService;
 import org.springframework.web.bind.annotation.*;

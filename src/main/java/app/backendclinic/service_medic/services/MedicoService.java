@@ -6,8 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import app.backendclinic.models.User;
 import app.backendclinic.repositorys.UserRepository;
+import app.backendclinic.service_medic.models.EspecialidadMedica;
 import app.backendclinic.service_medic.models.HorarioAtencion;
 import app.backendclinic.service_medic.models.Medico;
+import app.backendclinic.service_medic.repositorys.EspecialidadMedicaRepository;
 import app.backendclinic.service_medic.repositorys.HorarioAtencionRepository;
 import app.backendclinic.service_medic.repositorys.MedicoRepository;
 
@@ -29,6 +31,18 @@ public class MedicoService {
         return medicoRepository.findAll();
     }
 
+    @Autowired
+    private EspecialidadMedicaRepository especialidadMedicaRepository;
+
+    public Medico asignarEspecialidad(String medicoId, String especialidadId) {
+        Medico medico = medicoRepository.findById(medicoId).orElseThrow(() -> new RuntimeException("Médico no encontrado"));
+        EspecialidadMedica especialidad = especialidadMedicaRepository.findById(especialidadId).orElseThrow(() -> new RuntimeException("Especialidad no encontrada"));
+
+        // Agregar la especialidad al médico
+        medico.getEspecialidades().add(especialidad);
+        return medicoRepository.save(medico); // Guardar el médico con la nueva especialidad
+    }
+    
     public Medico getMedicoById(String id) {
         return medicoRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Medico not found with id: " + id));

@@ -1,6 +1,6 @@
 package app.backendclinic.service_medic.controllers;
 
-import app.backendclinic.service_medic.Dtos.CreateDatoEnfermeriaRequest;
+import app.backendclinic.service_medic.dtos.CreateDatoEnfermeriaRequest;
 import app.backendclinic.service_medic.models.DatoEnfermeria;
 import app.backendclinic.service_medic.services.DatoEnfermeriaService;
 import org.springframework.web.bind.annotation.*;

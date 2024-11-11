@@ -43,4 +43,10 @@ public class MedicoController {
     public List<HorarioAtencion> getHorariosByMedicoId(@PathVariable String id) {
         return medicoService.getHorariosByMedicoId(id);
     }
+
+    @PostMapping("/{id}/especialidades/{especialidadId}")
+    public Medico asignarEspecialidad(@PathVariable String id, @PathVariable String especialidadId) {
+        return medicoService.asignarEspecialidad(id, especialidadId);
+    }
+
 }

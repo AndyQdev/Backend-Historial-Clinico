@@ -1,6 +1,6 @@
 package app.backendclinic.service_medic.controllers;
 
-import app.backendclinic.service_medic.Dtos.EspecialidadMedicaDto;
+import app.backendclinic.service_medic.dtos.EspecialidadMedicaDto;
 import app.backendclinic.service_medic.models.EspecialidadMedica;
 
 import app.backendclinic.service_medic.services.EspecialidadMedicaService;

@@ -1,4 +1,4 @@
-package app.backendclinic.service_medic.Dtos;
+package app.backendclinic.service_medic.dtos;
 
 
 import lombok.Data;

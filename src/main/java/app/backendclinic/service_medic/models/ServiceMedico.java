@@ -9,33 +9,30 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import app.backendclinic.models.User;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "medicos")
-public class Medico {
+@Table(name = "servicios_medicos")
+public class ServiceMedico {
+
     @Id
     private String id;
 
-    @OneToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
-    private User usuario;
+    @Column(nullable = false)
+    private String nombre;
 
-    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<HorarioAtencion> horariosAtencion;
+    @Column(nullable = false)
+    private Double precio;
 
+    @Column()
+    private String descripcion;
     // Relación muchos a muchos con EspecialidadMedica
     @ManyToMany
     @JoinTable(
-        name = "medico_especialidad",
-        joinColumns = @JoinColumn(name = "medico_id"),
+        name = "servicio_especialidad",
+        joinColumns = @JoinColumn(name = "servicio_id"),
         inverseJoinColumns = @JoinColumn(name = "especialidad_id")
     )
     private List<EspecialidadMedica> especialidades;
