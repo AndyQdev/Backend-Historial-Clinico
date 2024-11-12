@@ -23,6 +23,7 @@ HELP.md
 /nbbuild/
 /dist/
 /nbdist/
+/target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/

@@ -39,4 +39,25 @@ public class RoleService {
         // 3. Guardar el Role en la base de datos
         return roleRepository.save(role);
     }
+
+    public Role updateRole(String id, RoleRequest roleRequest) {
+        Role existingRole = roleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Role no encontrado"));
+
+        // Actualizar el nombre y los permisos del rol existente
+        existingRole.setName(roleRequest.getName());
+
+        List<Permiso> permisos = new ArrayList<>();
+        for (String permisoId : roleRequest.getPermissionsId()) {
+            permisoRepository.findById(permisoId).ifPresent(permisos::add);
+        }
+        existingRole.setPermissions(permisos);
+
+        return roleRepository.save(existingRole);
+    }
+    public void deleteRole(String id) {
+        Role role = roleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Role no encontrado"));
+        roleRepository.delete(role);
+    }
 }
