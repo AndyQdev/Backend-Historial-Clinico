@@ -5,14 +5,10 @@ import app.backendclinic.Reportes.services.BitacoraService;
 import app.backendclinic.models.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import app.backendclinic.dtos.RoleRequest;
 import app.backendclinic.user.models.Role;
@@ -50,6 +46,30 @@ public class RoleController {
             throw e;
         }
     }
+    @PutMapping("/{id}")
+    public Role updateRole(@PathVariable String id, @RequestBody RoleRequest roleRequest, HttpServletRequest request) {
+        User usuario = getAuthenticatedUser();
+        String ipAddress = request.getRemoteAddr();
+
+        try {
+            Role updatedRole = roleService.updateRole(id, roleRequest);
+
+            // Registro en bitácora de la acción de actualización
+            try {
+                bitacoraService.registrarAccion("ACTUALIZACIÓN", usuario, "ACTUALIZACIÓN DE ROLE", ipAddress, "Exitoso");
+            } catch (Exception e) {
+                System.err.println("Error al registrar la bitácora: " + e.getMessage());
+            }
+            return updatedRole;
+        } catch (Exception e) {
+            try {
+                bitacoraService.registrarAccion("ACTUALIZACIÓN", usuario, "ACTUALIZACIÓN DE ROLE", ipAddress, "Fallido");
+            } catch (Exception bitacoraError) {
+                System.err.println("Error al registrar la bitácora en fallo: " + bitacoraError.getMessage());
+            }
+            throw e;
+        }
+    }
 
     @GetMapping("/{id}")
     public Role getRoleById(@PathVariable String id, HttpServletRequest request) {
@@ -74,10 +94,40 @@ public class RoleController {
 
         try {
             Role nuevoRole = roleService.createRole(roleRequest);
-            bitacoraService.registrarAccion("CREACIÓN", usuario, "CREACIÓN DE ROLE", ipAddress, "Exitoso");
+
+            // Manejo de errores en el registro de bitácora
+            try {
+                bitacoraService.registrarAccion("CREACIÓN", usuario, "CREACIÓN DE ROLE", ipAddress, "Exitoso");
+            } catch (Exception e) {
+                // Loguea el error sin afectar el flujo principal
+                System.err.println("Error al registrar la bitácora: " + e.getMessage());
+            }
             return nuevoRole;
         } catch (Exception e) {
-            bitacoraService.registrarAccion("CREACIÓN", usuario, "CREACIÓN DE ROLE", ipAddress, "Fallido");
+            // Registramos en bitácora que la creación falló
+            try {
+                bitacoraService.registrarAccion("CREACIÓN", usuario, "CREACIÓN DE ROLE", ipAddress, "Fallido");
+            } catch (Exception bitacoraError) {
+                System.err.println("Error al registrar la bitácora en fallo: " + bitacoraError.getMessage());
+            }
+            throw e;
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRole(@PathVariable String id, HttpServletRequest request) {
+        User usuario = getAuthenticatedUser();
+        String ipAddress = request.getRemoteAddr();
+
+        try {
+            roleService.deleteRole(id);
+            bitacoraService.registrarAccion("ELIMINACIÓN", usuario, "ELIMINACIÓN DE ROLE", ipAddress, "Exitoso");
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            try {
+                bitacoraService.registrarAccion("ELIMINACIÓN", usuario, "ELIMINACIÓN DE ROLE", ipAddress, "Fallido");
+            } catch (Exception bitacoraError) {
+                System.err.println("Error al registrar en bitácora en fallo: " + bitacoraError.getMessage());
+            }
             throw e;
         }
     }
