@@ -1,5 +1,7 @@
 HELP.md
 !.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -21,7 +23,6 @@ HELP.md
 /nbbuild/
 /dist/
 /nbdist/
-/target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
