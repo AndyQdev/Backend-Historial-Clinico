@@ -16,4 +16,7 @@ public class HorarioAtencionDTO {
     private String service;
     private String specialty;
     private Double rating;
+    private String descripcionServicio; // Nueva propiedad para la descripción del servicio
+    private Double precioServicio;      // Nueva propiedad para el precio del servicio
+    private String descripcionEspecialidad; 
 }

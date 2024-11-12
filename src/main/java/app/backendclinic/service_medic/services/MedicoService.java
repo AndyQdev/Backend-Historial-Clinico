@@ -42,7 +42,7 @@ public class MedicoService {
         medico.getEspecialidades().add(especialidad);
         return medicoRepository.save(medico); // Guardar el médico con la nueva especialidad
     }
-    
+
     public Medico getMedicoById(String id) {
         return medicoRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Medico not found with id: " + id));
@@ -65,6 +65,8 @@ public class MedicoService {
 
     @Transactional
     public HorarioAtencion addHorarioToMedico(String medicoId, HorarioAtencion horario) {
+        
+        System.out.println(horario);
         Medico medico = getMedicoById(medicoId);
 
         // Validar que no exista superposición de horarios en el mismo día

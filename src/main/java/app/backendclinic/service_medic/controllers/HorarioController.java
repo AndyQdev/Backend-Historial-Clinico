@@ -8,18 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.backendclinic.service_medic.dtos.HorarioAtencionDTO;
+import app.backendclinic.service_medic.models.HorarioAtencion;
+import app.backendclinic.service_medic.repositorys.HorarioAtencionRepository;
 import app.backendclinic.service_medic.services.HorarioAtencionService;
 
 @RestController
 @RequestMapping("/api/horarios")
 public class HorarioController {
-    // @Autowired
-    // private HorarioAtencionRepository horarioAtencionRepository;
+    @Autowired
+    private HorarioAtencionRepository horarioAtencionRepository;
 
-    // @GetMapping
-    // public List<HorarioAtencion> getAllHorarios(){
-    //     return horarioAtencionRepository.findAll();
-    // }
+    @GetMapping("/all")
+    public List<HorarioAtencion> getAllHorariosDisponible(){
+        return horarioAtencionRepository.findAll();
+    }
     @Autowired
     private HorarioAtencionService horarioAtencionService;
     
