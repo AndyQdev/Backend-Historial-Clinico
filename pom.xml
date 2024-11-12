@@ -97,7 +97,24 @@
 			<version>10.6.2</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>kernel</artifactId>
+			<version>7.1.13</version> <!-- o una versión disponible en Maven Central -->
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>layout</artifactId>
+			<version>7.1.13</version>
+		</dependency>
+
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>itext</id>
+			<url>https://repo.itextsupport.com/releases</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
