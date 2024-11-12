@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import app.backendclinic.user.models.Role;
 
+import java.util.Optional;
+
 @Repository
 public interface RoleRepository extends JpaRepository<Role, String>{
+    Optional<Role> findByName(String name);
 }
