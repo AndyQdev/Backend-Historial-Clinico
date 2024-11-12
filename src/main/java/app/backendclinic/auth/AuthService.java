@@ -167,6 +167,7 @@ public class AuthService {
         userRepository.save(user);
         return AuthResponse.builder()
         .token(jwtService.getToken(user))
+        .user(user)
         .build();
     }
 

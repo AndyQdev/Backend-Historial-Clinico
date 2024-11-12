@@ -19,18 +19,26 @@ public class HorarioAtencionService {
 
     public List<HorarioAtencionDTO> getAllHorariosWithDetails() {
         List<HorarioAtencion> horarios = horarioAtencionRepository.findAll();
-
+    
         return horarios.stream().map(horario -> {
             Medico medico = horario.getMedico();
             String doctorName = medico.getUsuario().getNombre();
             Double rating = medico.getRating();
-
+    
             // Obtener la primera especialidad y el primer servicio asociado para simplificar
             String specialty = medico.getEspecialidades().isEmpty() ? "N/A" : medico.getEspecialidades().get(0).getNombre();
-            String service = medico.getEspecialidades().isEmpty() || medico.getEspecialidades().get(0).getServicios().isEmpty()
-                    ? "N/A"
-                    : medico.getEspecialidades().get(0).getServicios().get(0).getNombre();
-
+            String descripcionEspecialidad = medico.getEspecialidades().isEmpty() ? "N/A" : medico.getEspecialidades().get(0).getDescripcion();
+    
+            String service = "N/A";
+            String descripcionServicio = "N/A";
+            Double precioServicio = null;
+            
+            if (!medico.getEspecialidades().isEmpty() && !medico.getEspecialidades().get(0).getServicios().isEmpty()) {
+                service = medico.getEspecialidades().get(0).getServicios().get(0).getNombre();
+                descripcionServicio = medico.getEspecialidades().get(0).getServicios().get(0).getDescripcion();
+                precioServicio = medico.getEspecialidades().get(0).getServicios().get(0).getPrecio();
+            }
+    
             return new HorarioAtencionDTO(
                     horario.getId(),
                     horario.getDia(),
@@ -39,8 +47,12 @@ public class HorarioAtencionService {
                     doctorName,
                     service,
                     specialty,
-                    rating
+                    rating,
+                    descripcionServicio,
+                    precioServicio,
+                    descripcionEspecialidad
             );
         }).collect(Collectors.toList());
     }
+    
 }
