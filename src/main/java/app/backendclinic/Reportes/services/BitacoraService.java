@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,13 +34,15 @@ public class BitacoraService {
     @Autowired
     private BitacoraRepository bitacoraRepository;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW) // Asegura la transacción para el método
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Bitacora registrarAccion(String accion, User usuario, String tipoAccion, String ipAddress, String resultado) {
-
+        // Configurar la zona horaria de Bolivia
+        ZoneId zoneId = ZoneId.of("America/Caracas");
+        ZonedDateTime now = ZonedDateTime.now(zoneId);
 
         Bitacora bitacora = Bitacora.builder()
                 .accion(accion)
-                .fechaHora(LocalDateTime.now())
+                .fechaHora(now.toLocalDateTime()) // Guarda como LocalDateTime después de ajustar la zona horaria
                 .usuario(usuario)
                 .tipoAccion(tipoAccion)
                 .ipAddress(ipAddress)
@@ -46,12 +50,11 @@ public class BitacoraService {
                 .build();
 
         Bitacora savedBitacora = bitacoraRepository.save(bitacora);
-        bitacoraRepository.flush();  // Fuerza la persistencia inmediata
-
-
+        bitacoraRepository.flush();
 
         return savedBitacora;
     }
+
 
     // Método para obtener todas las bitácoras como BitacoraDto
     public List<BitacoraDto> obtenerAccionesDeHoyDto() {
@@ -74,18 +77,17 @@ public class BitacoraService {
     }
 
     private BitacoraDto convertirABitacoraDto(Bitacora bitacora) {
-        String usuarioNombre = bitacora.getUsuario().getNombre();
-        String usuarioRol = bitacora.getUsuario().getRole().getName();
         return new BitacoraDto(
                 bitacora.getAccion(),
-                bitacora.getFechaHora(),
+                bitacora.getFechaHora(), // Usa la hora almacenada sin ajustar
                 bitacora.getTipoAccion(),
                 bitacora.getIpAddress(),
                 bitacora.getResultado(),
-                usuarioNombre,
-                usuarioRol
+                bitacora.getUsuario().getNombre(),
+                bitacora.getUsuario().getRole().getName()
         );
     }
+
     public ByteArrayOutputStream exportarBitacoraPDFPorUsuario(String usuarioId) {
         List<Bitacora> bitacoras = bitacoraRepository.findByUsuarioId(usuarioId);
 
