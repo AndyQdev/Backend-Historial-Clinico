@@ -2,6 +2,7 @@ package app.backendclinic.jwt;
 
 import java.io.IOException;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,43 +40,58 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         final String token = getTokenFromRequest(request);
-        final String identifier; // Puede ser username (para usuarios) o email (para clientes)
+        final String identifier;
 
         if (token == null) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        identifier = jwtService.getUsernameFromToken(token); // Extraer el identificador (email o username)
+        try {
+            identifier = jwtService.getUsernameFromToken(token);
 
-        if (identifier != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = null;
+            if (identifier != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = null;
 
-            // Intentar cargar como usuario
-            try {
-                userDetails = userDetailsService.loadUserByUsername(identifier);
-            } catch (UsernameNotFoundException e) {
-                // Si no es usuario, intentamos cargar como cliente
-                Paciente cliente = pacienteService.findByEmail(identifier); // Buscar el cliente por email
-                if (cliente != null) {
-                    userDetails = new CustomUserDetails(cliente); // Adaptar cliente a un UserDetails
+                // Intentar cargar como usuario
+                try {
+                    userDetails = userDetailsService.loadUserByUsername(identifier);
+                } catch (UsernameNotFoundException e) {
+                    // Intentar cargar como cliente
+                    Paciente cliente = pacienteService.findByEmail(identifier);
+                    if (cliente != null) {
+                        userDetails = new CustomUserDetails(cliente);
+                    }
+                }
+
+                if (userDetails != null && jwtService.isTokenValid(token, userDetails)) {
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities()
+                    );
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
 
-            // Si encontramos un cliente o usuario y el token es válido
-            if (userDetails != null && jwtService.isTokenValid(token, userDetails)) {
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities()
-                );
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authToken);
-            }
+        } catch (ExpiredJwtException ex) {
+            // Token expirado
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // Código 401
+            response.setContentType("application/json");
+            response.getWriter().write("{\"error\":\"TokenExpired\",\"message\":\"El token ha expirado\"}");
+            return;
+        } catch (Exception ex) {
+            // Otros errores
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN); // Código 403
+            response.setContentType("application/json");
+            response.getWriter().write("{\"error\":\"InvalidToken\",\"message\":\"Token inválido\"}");
+            return;
         }
 
         filterChain.doFilter(request, response);
     }
+
 
     private String getTokenFromRequest(HttpServletRequest request) {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
