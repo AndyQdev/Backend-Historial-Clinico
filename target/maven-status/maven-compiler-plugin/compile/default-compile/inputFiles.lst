@@ -1,80 +1,86 @@
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\controllers\CitaController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\dtos\CrearCitaRequestDTO.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\models\Cita.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\repositorys\CitasRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\services\CitaService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthResponse.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\LoginRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\RegisterPaciente.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\RegisterRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\TwilioService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\VerificationRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\BackendclinicApplication.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\ApplicationConfig.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\SecurityConfig.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\StartupConfig.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\demo\DemoController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\dtos\RoleRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\jwt\JwtAuthenticationFilter.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\jwt\JwtService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\models\CustomUserDetails.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\models\User.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\pacientes\controllers\PacienteController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\pacientes\Dtos\PageDto.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\pacientes\models\Paciente.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\pacientes\repositorys\PacienteRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\pacientes\services\PacienteService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\Reportes\controllers\BitacoraController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\Reportes\Dtos\BitacoraDto.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\Reportes\models\Bitacora.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\Reportes\repositorys\BitacoraRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\Reportes\services\BitacoraService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\repositorys\UserRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\AnotacionHistorialController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\AntecedenteController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\DatoEnfermeriaController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\EspecialidadMedicaController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\HistorialMedicoController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\HorarioController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\MedicoController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\controllers\ServiceMedicoController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\dtos\CreateAntecedenteRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\dtos\CreateDatoEnfermeriaRequest.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\dtos\EspecialidadMedicaDto.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\dtos\HorarioAtencionDTO.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\AnotacionHistorial.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\Antecedente.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\DatoEnfermeria.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\EspecialidadMedica.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\HistorialMedico.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\HorarioAtencion.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\Medico.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\models\ServiceMedico.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\AnotacionHistorialRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\AntecedenteRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\DatoEnfermeriaRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\EspecialidadMedicaRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\HistorialMedicoRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\HorarioAtencionRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\MedicoRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\repositorys\ServicioMedicoRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\AnotacionHistorialService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\AntecedenteService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\DatoEnfermeriaService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\EspecialidadMedicaService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\HistorialMedicoService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\HorarioAtencionService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\MedicoService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\service_medic\services\ServicioMedicoService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\swagger\OpenApiConfig.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\controllers\PermisoController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\controllers\RoleController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\controllers\UserController.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\models\Permiso.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\models\Role.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\repositorys\PermisoRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\repositorys\RoleRepository.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\services\PermisoSeederService.java
-C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\user\services\RoleService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\controllers\AtencionController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\controllers\CitaController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\dtos\CrearCitaRequestDTO.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\dtos\RegistrarAtencionDTO.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\models\AtencionEspecialidad.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\models\Cita.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\models\EstadoCita.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\repositorys\AtencionEspecialidadRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\repositorys\CitasRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\services\AtencionService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\atencioncitas\services\CitaService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\AuthController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\AuthResponse.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\AuthService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\LoginRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\RegisterPaciente.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\RegisterRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\TwilioService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\auth\VerificationRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\BackendclinicApplication.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\config\ApplicationConfig.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\config\SecurityConfig.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\config\StartupConfig.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\demo\DemoController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\dtos\RoleRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\jwt\JwtAuthenticationFilter.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\jwt\JwtService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\models\CustomUserDetails.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\models\User.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\pacientes\controllers\PacienteController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\pacientes\Dtos\PageDto.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\pacientes\models\Paciente.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\pacientes\repositorys\PacienteRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\pacientes\services\PacienteService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\Reportes\controllers\BitacoraController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\Reportes\Dtos\BitacoraDto.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\Reportes\models\Bitacora.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\Reportes\repositorys\BitacoraRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\Reportes\services\BitacoraService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\repositorys\UserRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\AnotacionHistorialController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\AntecedenteController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\DatoEnfermeriaController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\EspecialidadMedicaController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\HistorialMedicoController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\HorarioController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\MedicoController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\ServiceMedicoController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\CreateAntecedenteRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\CreateDatoEnfermeriaRequest.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\EspecialidadMedicaDto.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\HorarioAtencionDTO.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\AnotacionHistorial.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\Antecedente.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\DatoEnfermeria.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\EspecialidadMedica.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\HistorialMedico.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\HorarioAtencion.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\Medico.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\ServiceMedico.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\AnotacionHistorialRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\AntecedenteRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\DatoEnfermeriaRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\EspecialidadMedicaRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\HistorialMedicoRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\HorarioAtencionRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\MedicoRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\ServicioMedicoRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\AnotacionHistorialService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\AntecedenteService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\DatoEnfermeriaService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\EspecialidadMedicaService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\HistorialMedicoService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\HorarioAtencionService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\MedicoService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\ServicioMedicoService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\swagger\OpenApiConfig.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\controllers\PermisoController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\controllers\RoleController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\controllers\UserController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\models\Permiso.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\models\Role.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\repositorys\PermisoRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\repositorys\RoleRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\services\PermisoSeederService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\user\services\RoleService.java

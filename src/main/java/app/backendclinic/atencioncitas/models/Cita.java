@@ -51,6 +51,10 @@ public class Cita {
     @JoinColumn(name = "servicio_medico_id", nullable = false)
     private ServiceMedico servicioMedico;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado", nullable = false)
+    private EstadoCita estado = EstadoCita.PENDIENTE;
+
     @PrePersist
     public void prePersist() {
         if (id == null || id.isEmpty()) {
