@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,6 +26,7 @@ public class Medico {
 
     @OneToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+    @ToString.Exclude // Evita que se incluya en toString
     private User usuario;
 
     @Column(nullable = true)
@@ -32,6 +34,7 @@ public class Medico {
     
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
+    @ToString.Exclude // Evita ciclos con HorarioAtencion
     private List<HorarioAtencion> horariosAtencion;
 
     // Relación muchos a muchos con EspecialidadMedica
@@ -41,6 +44,7 @@ public class Medico {
         joinColumns = @JoinColumn(name = "medico_id"),
         inverseJoinColumns = @JoinColumn(name = "especialidad_id")
     )
+    @ToString.Exclude // Evita ciclos con HorarioAtencion
     private List<EspecialidadMedica> especialidades;
 
     @PrePersist

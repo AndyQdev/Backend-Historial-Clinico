@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,6 +36,7 @@ public class ServiceMedico {
         joinColumns = @JoinColumn(name = "servicio_id"),
         inverseJoinColumns = @JoinColumn(name = "especialidad_id")
     )
+    @ToString.Exclude // Evita ciclos con HorarioAtencion
     private List<EspecialidadMedica> especialidades;
 
     @PrePersist

@@ -79,6 +79,7 @@ public class CitaService {
             nuevaCita.setEstado(EstadoCita.PENDIENTE);
         }
 
+        System.out.println("Cita creada: " + nuevaCita);
         return citaRepository.save(nuevaCita);
     }
 

@@ -1,6 +1,5 @@
 package app.backendclinic.atencioncitas.models;
 
-import app.backendclinic.atencioncitas.models.Cita;
 import app.backendclinic.service_medic.models.EspecialidadMedica;
 import app.backendclinic.service_medic.models.HistorialMedico;
 import jakarta.persistence.*;

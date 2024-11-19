@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.UUID;
@@ -40,6 +41,7 @@ public class EspecialidadMedica {
         inverseJoinColumns = @JoinColumn(name = "servicio_id")
     )
     @JsonIgnore // Evita la serialización infinita en la respuesta JSON
+    @ToString.Exclude 
     private List<ServiceMedico> servicios;
     @PrePersist
     public void prePersist() {

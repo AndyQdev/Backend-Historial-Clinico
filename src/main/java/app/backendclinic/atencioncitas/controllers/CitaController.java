@@ -135,7 +135,7 @@ public class CitaController {
                     .orElseThrow(() -> new EntityNotFoundException("Cita no encontrada"));
 
             // Guardar el ID del médico y del paciente
-            String usuarioId = cita.getMedico().getUsuario().getId();
+            // String usuarioId = cita.getMedico().getUsuario().getId();
             String pacienteId = cita.getPaciente().getId();
             String medicoId = cita.getMedico().getId();
 
@@ -158,6 +158,9 @@ public class CitaController {
             nuevaCitaRequest.setPacienteId(pacienteId);
             nuevaCitaRequest.setServicioId(cita.getServicioMedico().getId());
             nuevaCitaRequest.setEspecialidadId(cita.getEspecialidad().getId());
+            nuevaCitaRequest.setEstado("Pendiente");
+            nuevaCitaRequest.setCodigoCita(cita.getCodigoCita());
+            System.out.println(nuevaCitaRequest);
             Cita nuevaCita = citaService.crearCita(nuevaCitaRequest);
 
             // Enviar mensaje por WhatsApp

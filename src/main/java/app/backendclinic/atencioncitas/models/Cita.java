@@ -52,7 +52,7 @@ public class Cita {
     private ServiceMedico servicioMedico;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "estado", nullable = false)
+    @Column(name = "estado", nullable = true)
     private EstadoCita estado = EstadoCita.PENDIENTE;
 
     @PrePersist

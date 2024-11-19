@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: app.backendclinic.BackendclinicApplicationTests
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.87 s -- in app.backendclinic.BackendclinicApplicationTests
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.88 s -- in app.backendclinic.BackendclinicApplicationTests
->>>>>>> de02c853ac11e4841477f0d0b272b24e52e70105
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.16 s -- in app.backendclinic.BackendclinicApplicationTests
