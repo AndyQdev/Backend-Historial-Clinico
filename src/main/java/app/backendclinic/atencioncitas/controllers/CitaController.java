@@ -1,5 +1,6 @@
 package app.backendclinic.atencioncitas.controllers;
 
+import app.backendclinic.atencioncitas.models.EstadoCita;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -74,5 +75,30 @@ public class CitaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(citas, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity<Cita> actualizarEstadoCita(
+            @PathVariable String id,
+            @RequestParam String estado) {
+        try {
+            EstadoCita nuevoEstado = EstadoCita.valueOf(estado.toUpperCase());
+            Cita citaActualizada = citaService.actualizarEstadoCita(id, nuevoEstado);
+            return new ResponseEntity<>(citaActualizada, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Si el estado no es válido
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT); // Si la transición no está permitida
+        }
+    }
+
+    @PatchMapping("/{id}/no_asistio")
+    public ResponseEntity<Cita> marcarNoAsistio(@PathVariable String id) {
+        try {
+            Cita citaNoAsistio = citaService.actualizarEstadoCita(id, EstadoCita.NO_ASISTIO);
+            return new ResponseEntity<>(citaNoAsistio, HttpStatus.OK);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT); // Transición no permitida
+        }
     }
 }

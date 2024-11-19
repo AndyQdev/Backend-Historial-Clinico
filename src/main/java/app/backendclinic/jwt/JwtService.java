@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map; // Este es el Map correcto
 import java.util.function.Function;
+
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -59,9 +61,18 @@ public class JwtService {
 
     // Validar token para UserDetails
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        try {
+            final String username = getUsernameFromToken(token);
+            return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        } catch (ExpiredJwtException ex) {
+            // Token expirado
+            throw ex; // Deja que el filtro lo maneje
+        } catch (Exception e) {
+            // Otros errores
+            return false;
+        }
     }
+
 
     // Validar token en general
     public boolean isTokenValid(String token) {
