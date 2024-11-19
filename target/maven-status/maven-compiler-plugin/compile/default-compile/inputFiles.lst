@@ -1,8 +1,10 @@
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\controllers\CitaController.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\dtos\CrearCitaRequestDTO.java
+C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\dtos\NotificationDTO.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\models\Cita.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\repositorys\CitasRepository.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\services\CitaService.java
+C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\atencioncitas\services\NotificationSocketService.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthController.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthResponse.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\auth\AuthService.java
@@ -14,6 +16,7 @@ C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\sr
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\BackendclinicApplication.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\ApplicationConfig.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\SecurityConfig.java
+C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\SocketIOConfig.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\config\StartupConfig.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\demo\DemoController.java
 C:\Universidad\6to semestre\Sistema de informacion ll\Parcial 2\backendclinic\src\main\java\app\backendclinic\dtos\RoleRequest.java

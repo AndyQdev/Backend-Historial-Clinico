@@ -62,6 +62,7 @@ app\backendclinic\service_medic\models\Antecedente.class
 app\backendclinic\user\models\Role.class
 app\backendclinic\service_medic\repositorys\EspecialidadMedicaRepository.class
 app\backendclinic\service_medic\repositorys\ServicioMedicoRepository.class
+app\backendclinic\config\SocketIOConfig.class
 app\backendclinic\auth\VerificationRequest.class
 app\backendclinic\service_medic\services\AntecedenteService.class
 app\backendclinic\user\controllers\PermisoController.class
@@ -80,11 +81,13 @@ app\backendclinic\service_medic\models\HorarioAtencion$HorarioAtencionBuilder.cl
 app\backendclinic\pacientes\models\Paciente$PacienteBuilder.class
 app\backendclinic\models\CustomUserDetails.class
 app\backendclinic\atencioncitas\repositorys\CitasRepository.class
+app\backendclinic\atencioncitas\dtos\NotificationDTO.class
 app\backendclinic\auth\LoginRequest.class
 app\backendclinic\service_medic\controllers\ServiceMedicoController.class
 app\backendclinic\service_medic\models\DatoEnfermeria.class
 app\backendclinic\user\models\Permiso$PermisoBuilder.class
 app\backendclinic\service_medic\models\AnotacionHistorial.class
+app\backendclinic\atencioncitas\services\NotificationSocketService.class
 app\backendclinic\jwt\JwtAuthenticationFilter.class
 app\backendclinic\auth\RegisterRequest$RegisterRequestBuilder.class
 app\backendclinic\service_medic\repositorys\HorarioAtencionRepository.class

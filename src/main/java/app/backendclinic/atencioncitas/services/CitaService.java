@@ -101,4 +101,6 @@ public class CitaService {
     public List<Cita> obtenerCitasPorPaciente(String pacienteId) {
         return citaRepository.findByPacienteId(pacienteId);
     }
+
+    
 }

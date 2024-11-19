@@ -29,6 +29,13 @@ public class TwilioService {
         ).create();
     }
 
+    public void sendCustomMessage(String toWhatsAppNumber, String messageContent) {
+        Message.creator(
+            new PhoneNumber("whatsapp:" + toWhatsAppNumber),
+            new PhoneNumber(fromWhatsAppNumber),
+            messageContent
+        ).create();
+    }
     public String generateVerificationCode() {
         return String.format("%06d", new Random().nextInt(999999));
     }

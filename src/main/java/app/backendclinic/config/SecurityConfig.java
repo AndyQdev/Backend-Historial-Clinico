@@ -35,6 +35,7 @@ public class SecurityConfig {
                     .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                     .requestMatchers("/auth/**").permitAll()
                     .requestMatchers("/api/**").permitAll()
+                    .requestMatchers("/ws/**").permitAll()
                     .anyRequest().authenticated()
             )
             .sessionManagement(sessionManagement -> 
@@ -49,7 +50,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://front-historias-medicas.vercel.app", "http://localhost:4200")); // Origen permitido
+        configuration.setAllowedOrigins(List.of("https://front-historias-medicas.vercel.app", "http://localhost:4200", "http://localhost:8080")); // Origen permitido
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // Permitir cookies o credenciales

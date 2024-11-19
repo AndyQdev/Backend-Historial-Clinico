@@ -3,7 +3,6 @@ package app.backendclinic.service_medic.services;
 import app.backendclinic.service_medic.dtos.HorarioAtencionDTO;
 import app.backendclinic.service_medic.models.HorarioAtencion;
 import app.backendclinic.service_medic.models.Medico;
-import app.backendclinic.service_medic.models.ServiceMedico;
 import app.backendclinic.service_medic.repositorys.HorarioAtencionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +57,7 @@ public class HorarioAtencionService {
             );
         }).collect(Collectors.toList());
     }
-    
+    public List<HorarioAtencion> getHorariosByUsuarioId(String idUsuario) {
+        return horarioAtencionRepository.findByUsuarioId(idUsuario);
+    }
 }
