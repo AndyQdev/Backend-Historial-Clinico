@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import app.backendclinic.pacientes.models.Paciente;
+import app.backendclinic.service_medic.models.EspecialidadMedica;
 import app.backendclinic.service_medic.models.Medico;
 import app.backendclinic.service_medic.models.ServiceMedico;
 
@@ -31,8 +32,9 @@ public class Cita {
     @Column(name = "fecha_creada", nullable = false)
     private LocalDateTime fechaCreada;
 
-    @Column(nullable = false)
-    private String especialidad;
+    @ManyToOne
+    @JoinColumn(name = "especialidad_id", nullable = false)
+    private EspecialidadMedica especialidad;
 
     // Relación con Medico (Muchos a Uno)
     @ManyToOne

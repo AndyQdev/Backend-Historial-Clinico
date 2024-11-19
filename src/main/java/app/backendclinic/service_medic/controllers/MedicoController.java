@@ -48,5 +48,4 @@ public class MedicoController {
     public Medico asignarEspecialidad(@PathVariable String id, @PathVariable String especialidadId) {
         return medicoService.asignarEspecialidad(id, especialidadId);
     }
-
 }

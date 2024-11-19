@@ -59,4 +59,20 @@ public class CitaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Cita>> obtenerCitasPorUsuario(@PathVariable String usuarioId) {
+        List<Cita> citas = citaService.obtenerCitasPorUsuario(usuarioId);
+        if (citas.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(citas, HttpStatus.OK);
+    }
+    @GetMapping("/paciente/{pacienteId}")
+    public ResponseEntity<List<Cita>> obtenerCitasPorPaciente(@PathVariable String pacienteId) {
+        List<Cita> citas = citaService.obtenerCitasPorPaciente(pacienteId);
+        if (citas.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(citas, HttpStatus.OK);
+    }
 }

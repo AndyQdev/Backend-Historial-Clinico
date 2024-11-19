@@ -12,5 +12,5 @@ public class CrearCitaRequestDTO {
     private String pacienteId;
     private String servicioId;
     private String codigoCita; // si quieres que el cliente lo envíe o si lo quieres generar en el servicio, puedes omitirlo aquí
-    private String especialidad;
+    private String especialidadId;
 }

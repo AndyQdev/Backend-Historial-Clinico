@@ -6,8 +6,10 @@ import app.backendclinic.atencioncitas.models.Cita;
 import app.backendclinic.atencioncitas.repositorys.CitasRepository;
 import app.backendclinic.pacientes.models.Paciente;
 import app.backendclinic.pacientes.repositorys.PacienteRepository;
+import app.backendclinic.service_medic.models.EspecialidadMedica;
 import app.backendclinic.service_medic.models.Medico;
 import app.backendclinic.service_medic.models.ServiceMedico;
+import app.backendclinic.service_medic.repositorys.EspecialidadMedicaRepository;
 import app.backendclinic.service_medic.repositorys.MedicoRepository;
 import app.backendclinic.service_medic.repositorys.ServicioMedicoRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -32,6 +34,9 @@ public class CitaService {
     private PacienteRepository pacienteRepository;
 
     @Autowired
+    private EspecialidadMedicaRepository especialidadMedicaRepository;
+    
+    @Autowired
     private ServicioMedicoRepository serviceMedicoRepository;
 
     public List<Cita> obtenerTodasLasCitas() {
@@ -47,7 +52,7 @@ public class CitaService {
         String medicoId = crearCitaRequest.getMedicoId();
         String pacienteId = crearCitaRequest.getPacienteId();
         String servicioId = crearCitaRequest.getServicioId();
-        
+        String especialidadId = crearCitaRequest.getEspecialidadId();
         // Lógica de creación de la cita usando estos IDs y otros datos
         Medico medico = medicoRepository.findById(medicoId)
                 .orElseThrow(() -> new EntityNotFoundException("Médico no encontrado"));
@@ -56,12 +61,15 @@ public class CitaService {
         ServiceMedico servicio = serviceMedicoRepository.findById(servicioId)
                 .orElseThrow(() -> new EntityNotFoundException("Servicio médico no encontrado"));
 
+        EspecialidadMedica especialidad = especialidadMedicaRepository.findById(especialidadId)
+                .orElseThrow(() -> new EntityNotFoundException("Servicio médico no encontrado"));
+
         Cita nuevaCita = new Cita();
         nuevaCita.setMedico(medico);
         nuevaCita.setPaciente(paciente);
         nuevaCita.setServicioMedico(servicio);
         nuevaCita.setFechaCreada(LocalDateTime.now());
-        nuevaCita.setEspecialidad(crearCitaRequest.getEspecialidad());
+        nuevaCita.setEspecialidad(especialidad);
         // nuevaCita.setCodigoCita(crearCitaRequest.getCodigoCita()); // o generarlo aquí si no lo recibe
 
         return citaRepository.save(nuevaCita);
@@ -83,5 +91,14 @@ public class CitaService {
             throw new IllegalArgumentException("Cita no encontrada con ID: " + id);
         }
         citaRepository.deleteById(id);
+    }
+    // Método para obtener citas por usuario (médico o paciente)
+    public List<Cita> obtenerCitasPorUsuario(String usuarioId) {
+        return citaRepository.findByMedicoUsuarioIdOrPacienteId(usuarioId, usuarioId);
+    }
+
+    // Método para obtener citas de un paciente específico
+    public List<Cita> obtenerCitasPorPaciente(String pacienteId) {
+        return citaRepository.findByPacienteId(pacienteId);
     }
 }
