@@ -1,3 +1,4 @@
+app\backendclinic\service_medic\dtos\MedicamentoRecetadoDto.class
 app\backendclinic\auth\RegisterPaciente$RegisterPacienteBuilder.class
 app\backendclinic\user\controllers\UserController.class
 app\backendclinic\service_medic\repositorys\MedicoRepository.class
@@ -11,6 +12,7 @@ app\backendclinic\config\StartupConfig.class
 app\backendclinic\atencioncitas\models\AtencionEspecialidad.class
 app\backendclinic\atencioncitas\models\EstadoCita.class
 app\backendclinic\dtos\RoleRequest$RoleRequestBuilder.class
+app\backendclinic\service_medic\models\MedicamentoRecetado$MedicamentoRecetadoBuilder.class
 app\backendclinic\pacientes\models\Paciente.class
 app\backendclinic\auth\AuthController.class
 app\backendclinic\dtos\RoleRequest.class
@@ -43,6 +45,7 @@ app\backendclinic\service_medic\models\Antecedente$AntecedenteBuilder.class
 app\backendclinic\pacientes\controllers\PacienteController.class
 app\backendclinic\service_medic\controllers\HistorialMedicoController.class
 app\backendclinic\config\ApplicationConfig.class
+app\backendclinic\service_medic\services\MedicamentoRecetadoService.class
 app\backendclinic\service_medic\repositorys\AnotacionHistorialRepository.class
 app\backendclinic\service_medic\models\HistorialMedico.class
 app\backendclinic\service_medic\models\HistorialMedico$HistorialMedicoBuilder.class
@@ -56,6 +59,7 @@ app\backendclinic\user\models\Permiso.class
 app\backendclinic\service_medic\models\ServiceMedico$ServiceMedicoBuilder.class
 app\backendclinic\service_medic\models\DatoEnfermeria$DatoEnfermeriaBuilder.class
 app\backendclinic\service_medic\services\MedicoService.class
+app\backendclinic\service_medic\repositorys\MedicamentoRecetadoRepository.class
 app\backendclinic\user\repositorys\PermisoRepository.class
 app\backendclinic\user\models\Role$RoleBuilder.class
 app\backendclinic\atencioncitas\models\Cita.class
@@ -83,10 +87,12 @@ app\backendclinic\service_medic\dtos\EspecialidadMedicaDto.class
 app\backendclinic\service_medic\controllers\AnotacionHistorialController.class
 app\backendclinic\service_medic\models\HorarioAtencion$HorarioAtencionBuilder.class
 app\backendclinic\pacientes\models\Paciente$PacienteBuilder.class
+app\backendclinic\service_medic\controllers\MedicamentoRecetadoController.class
 app\backendclinic\models\CustomUserDetails.class
 app\backendclinic\atencioncitas\repositorys\CitasRepository.class
 app\backendclinic\auth\LoginRequest.class
 app\backendclinic\service_medic\controllers\ServiceMedicoController.class
+app\backendclinic\service_medic\models\MedicamentoRecetado.class
 app\backendclinic\service_medic\models\DatoEnfermeria.class
 app\backendclinic\user\models\Permiso$PermisoBuilder.class
 app\backendclinic\service_medic\models\AnotacionHistorial.class

@@ -1,6 +1,8 @@
 package app.backendclinic.service_medic.controllers;
 
+import app.backendclinic.models.CustomUserDetails;
 import app.backendclinic.models.User;
+import app.backendclinic.pacientes.models.Paciente;
 import app.backendclinic.service_medic.models.HistorialMedico;
 import app.backendclinic.service_medic.services.HistorialMedicoService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,24 +25,20 @@ public class HistorialMedicoController {
 
     @GetMapping("/{pacienteId}")
     public ResponseEntity<HistorialMedico> getHistorialMedico(@PathVariable String pacienteId, HttpServletRequest request) {
-        // Obtener el usuario autenticado
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User usuario = (User) auth.getPrincipal();
-        String ipAddress = request.getRemoteAddr();
-
-        // Intentar obtener el historial médico
         try {
+            // Verificar autenticación
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth == null || !auth.isAuthenticated()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+
+            // Obtener el historial médico asociado al paciente
             HistorialMedico historial = historialMedicoService.getHistorialMedico(pacienteId);
-
-            // Registrar acción en la bitácora en caso de éxito
-            historialMedicoService.registrarAccionBitacora("VISTA", usuario, "CONSULTA HISTORIAL MÉDICO", ipAddress, "Exitoso");
-
-            return historial != null ? new ResponseEntity<>(historial, HttpStatus.OK)
-                    : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return historial != null
+                    ? ResponseEntity.ok(historial)
+                    : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e) {
-            // Registrar en la bitácora en caso de fallo
-            historialMedicoService.registrarAccionBitacora("VISTA", usuario, "CONSULTA HISTORIAL MÉDICO", ipAddress, "Fallido");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-    }
+}
 }

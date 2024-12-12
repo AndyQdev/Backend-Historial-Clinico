@@ -44,18 +44,21 @@ C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\jav
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\EspecialidadMedicaController.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\HistorialMedicoController.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\HorarioController.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\MedicamentoRecetadoController.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\MedicoController.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\controllers\ServiceMedicoController.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\CreateAntecedenteRequest.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\CreateDatoEnfermeriaRequest.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\EspecialidadMedicaDto.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\HorarioAtencionDTO.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\Dtos\MedicamentoRecetadoDto.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\AnotacionHistorial.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\Antecedente.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\DatoEnfermeria.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\EspecialidadMedica.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\HistorialMedico.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\HorarioAtencion.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\MedicamentoRecetado.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\Medico.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\models\ServiceMedico.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\AnotacionHistorialRepository.java
@@ -64,6 +67,7 @@ C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\jav
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\EspecialidadMedicaRepository.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\HistorialMedicoRepository.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\HorarioAtencionRepository.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\MedicamentoRecetadoRepository.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\MedicoRepository.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\repositorys\ServicioMedicoRepository.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\AnotacionHistorialService.java
@@ -72,6 +76,7 @@ C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\jav
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\EspecialidadMedicaService.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\HistorialMedicoService.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\HorarioAtencionService.java
+C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\MedicamentoRecetadoService.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\MedicoService.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\service_medic\services\ServicioMedicoService.java
 C:\Users\hp\Documents\SpringBoot Projects\Backend-Historial-Clinico\src\main\java\app\backendclinic\swagger\OpenApiConfig.java
